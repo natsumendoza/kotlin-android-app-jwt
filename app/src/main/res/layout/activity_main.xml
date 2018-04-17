@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View" />
+        <variable name="loggedIn" type="java.lang.Boolean" />
+    </data>
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button android:id="@+id/login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Please, identify yourself."
+            android:visibility="@{loggedIn ? View.GONE : View.VISIBLE}" />
+
+        <ListView android:id="@+id/list_todo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:labelFor="@+id/item"
+            android:visibility="@{loggedIn ? View.VISIBLE : View.GONE}" />
+
+        <Button
+            android:id="@+id/add_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add item"
+            android:visibility="@{loggedIn ? View.VISIBLE : View.GONE}" />
+        <!-- ... login_button and list_todo remain untouched -->
+
+    </LinearLayout>
+</layout>
